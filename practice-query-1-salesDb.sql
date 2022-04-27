@@ -59,3 +59,6 @@ select c.Name 'Customers', COUNT(*) as 'Orders'		-- '' after column names will n
 select * from Customers
 	where Sales between 10000 and 30000;
 --	Where Sales >= 10000 and sales <= 30000;
+
+select * from Customers
+	where Sales < (select AVG(sales) from Customers);
