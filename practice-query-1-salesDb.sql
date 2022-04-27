@@ -62,3 +62,6 @@ select * from Customers
 
 select * from Customers
 	where Sales < (select AVG(sales) from Customers);
+
+select avg(sales)
+	from Customers;
