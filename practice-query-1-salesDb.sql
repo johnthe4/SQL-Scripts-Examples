@@ -34,3 +34,16 @@ SELECT * FROM OrderLines;
 
 SELECT * FROM Orders;
 
+-- joining 2 tables
+select o.Id, c.Name, o.Date, o.Description		-- gives all columns from Orders, Name column from Customers
+	from Orders o								-- o and c are aliases for Orders and Customers
+	join Customers c
+		on o.CustomerId = c.Id;
+
+-- group by, count function
+select c.Name 'Customers', COUNT(*) as 'Orders'		-- '' after column names will name the display column
+	from Customers c
+	join Orders o
+		on o.CustomerId = c.Id
+	group by c.Name
+	order by Orders desc;
