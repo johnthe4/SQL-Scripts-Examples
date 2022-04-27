@@ -47,3 +47,15 @@ select c.Name 'Customers', COUNT(*) as 'Orders'		-- '' after column names will n
 		on o.CustomerId = c.Id
 	group by c.Name
 	order by Orders desc;
+
+select c.Name 'Customers', COUNT(*) as 'Orders'		-- '' after column names will name the display column
+	from Customers c
+	join Orders o
+		on o.CustomerId = c.Id
+	group by c.Name
+	having COUNT(*) > 1
+	order by Orders desc;
+
+select * from Customers
+	where Sales between 10000 and 30000;
+--	Where Sales >= 10000 and sales <= 30000;
