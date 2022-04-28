@@ -78,3 +78,37 @@ Select *
 Select * from Student s 
 	where GPA >= (select AVG(gpa) from Student);
 
+
+Select * 
+	from Student s
+	left join Major m 
+		on s.MajorId = m.Id;
+
+-- parameterized Query slide 102
+-- must declare variable outside of the query
+declare @sat int;							-- must declare variable with @
+set @sat = 1495;
+select *
+	from Student s
+	where sat >= @sat
+	order by sat desc;
+
+declare @lowGPA decimal(7,2) = 2.25;
+declare @highGPA decimal(7,2) = 3.59;
+select * 
+	from Student
+	where GPA >= @lowGPA AND GPA <= @highGPA
+	order by GPA desc;
+
+-- aggregate functions slide 109
+-- COUNT function
+select statecode as 'State', COUNT(*) as 'Number of Students'
+	from Student
+	group by StateCode								-- used group by to count amount of students in each group
+	order by COUNT(*) DESC;
+
+-- MAX function
+-- needs to be used in a subquery
+select *
+	from Student
+	where GPA = (select MAX(gpa) from Student);

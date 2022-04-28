@@ -61,7 +61,6 @@ select * from Customers
 --	Where Sales >= 10000 and sales <= 30000;
 
 select * from Customers
-	where Sales < (select AVG(sales) from Customers);
+	where Sales < (select AVG(sales) from Customers)
+	order by Sales desc;
 
-select avg(sales)
-	from Customers;
