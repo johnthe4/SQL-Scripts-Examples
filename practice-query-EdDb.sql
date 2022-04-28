@@ -112,3 +112,20 @@ select statecode as 'State', COUNT(*) as 'Number of Students'
 select *
 	from Student
 	where GPA = (select MAX(gpa) from Student);
+
+-- CONCAT combines multiple tables into 1 string
+select CONCAT(Lastname,', ', Firstname) as 'name', GPA, SAT
+	from Student
+	order by Lastname;
+
+-- FORMAT can change the format of a table to show currency
+-- IN SALESDB
+select name, FORMAT(sales, 'C')
+	from customers;
+
+-- ISNULL - will change null to a specified string
+select CONCAT(s.firstname, ' ', s.Lastname) as 'Name', ISNULL(Description, 'Undeclared') as 'Major'
+	from Student s
+	left join Major m
+		on s.MajorId = m.Id
+	order by s.Lastname;
