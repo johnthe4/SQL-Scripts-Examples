@@ -25,7 +25,7 @@ end
 
 -- calculate and print average
 set @avg = @sum / @count;
-print 'Average Minimum SAT ' + trim(str(@avg));
+print 'Average Minimum SAT ' + trim(str(@avg));	
 print 'Done...';
 
 close aCursor; 
