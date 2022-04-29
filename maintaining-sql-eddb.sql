@@ -62,3 +62,26 @@ delete major
 	where ID = (select id from Major where Description = 'General studies')
 
 select * from major;
+
+-- adding a student to a new class
+insert class (code, subject, section)
+	values
+	('ENG401', 'English', 401);
+
+select * from Class;
+select * from Student;
+
+select sc.StudentId, CONCAT(s.firstname, ' ', s.Lastname) as Name, c.code, c.subject, sc.ClassGradeValue as 'Grade', c.InstructorId as 'Instructor'
+	from StudentClass SC
+	JOIN Student S
+		ON S.Id = sc.StudentId
+	join Class c
+		on c.Id = sc.ClassId;
+
+insert StudentClass (StudentId, ClassId)
+	values
+	(
+	(select id from Student where Lastname = 'McGaughey' and Firstname = 'John'), 
+	(SELECT id from class where code = 'ENG401')
+	);
+
