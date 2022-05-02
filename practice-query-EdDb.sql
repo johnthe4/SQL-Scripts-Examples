@@ -120,9 +120,11 @@ select CONCAT(Lastname,', ', Firstname) as 'name', GPA, SAT
 
 -- FORMAT can change the format of a table to show currency
 -- IN SALESDB
+use SalesDb;
 select name, FORMAT(sales, 'C')
 	from customers;
 
+use EdDb;
 -- ISNULL - will change null to a specified string
 select CONCAT(s.firstname, ' ', s.Lastname) as 'Name', ISNULL(Description, 'Undeclared') as 'Major'
 	from Student s
