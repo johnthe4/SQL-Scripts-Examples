@@ -44,3 +44,6 @@ exec AddMajor @code = 'SPAN', @description = 'Spanish', @minsat = 1000;
 go
 select * from Major
 	ORDER by id desc;
+
+delete from Major where code like '%SPAN%';
+
