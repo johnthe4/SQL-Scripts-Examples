@@ -32,7 +32,7 @@ INSERT ClassGrade (Grade, GPA) VALUES ('F',0.0);
 
 create table Major (
 	Id int primary key identity(1,1),
-	Code varchar(4) not null,
+	Code varchar(4) not null unique,
 	Description varchar(50) not null,
 	MinSAT int not null
 );
